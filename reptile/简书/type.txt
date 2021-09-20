@@ -1,0 +1,5 @@
+type Hot struct {
+	Href    string `selector:"div[class=content] > a[class=title]" attr:"href"`
+	Title   string `selector:"div[class=content] > a[class=title]"`
+	Summary string `selector:"div[class=content] > p[class=abstract]"`
+}
