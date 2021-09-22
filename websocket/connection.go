@@ -21,6 +21,7 @@ var wu = &websocket.Upgrader{
 }
 
 func myws(w http.ResponseWriter, r *http.Request) {
+	// 将HTTP服务器连接升级到WebSocket协议
 	ws, err := wu.Upgrade(w, r, nil)
 	if err != nil {
 		return
@@ -28,6 +29,7 @@ func myws(w http.ResponseWriter, r *http.Request) {
 	c := &connection{sc: make(chan []byte, 256), ws: ws, data: &Data{}}
 	h.r <- c
 	go c.writer()
+	// 持续的读数据
 	c.reader()
 	defer func() {
 		c.data.Type = "logout"
@@ -42,6 +44,7 @@ func myws(w http.ResponseWriter, r *http.Request) {
 
 func (c *connection) writer() {
 	for message := range c.sc {
+		// 编写消息并关闭编写器
 		c.ws.WriteMessage(websocket.TextMessage, message)
 	}
 	c.ws.Close()
@@ -51,6 +54,7 @@ var user_list = []string{}
 
 func (c *connection) reader() {
 	for {
+		// 从读卡器读到缓冲区
 		_, message, err := c.ws.ReadMessage()
 		if err != nil {
 			h.r <- c
