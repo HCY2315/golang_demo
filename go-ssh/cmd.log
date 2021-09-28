@@ -1,0 +1,21 @@
+2020/12/13 01:33:39 命令：[df -Th]===================================================
+2020/12/13 01:33:39 ：[192.168.200.20] 磁盘空间使用剩余情况
+文件系统       类型      容量  已用  可用 已用% 挂载点
+/dev/sda3      xfs        78G   13G   66G   16% /
+devtmpfs       devtmpfs  474M     0  474M    0% /dev
+tmpfs          tmpfs     489M     0  489M    0% /dev/shm
+tmpfs          tmpfs     489M  7.0M  482M    2% /run
+tmpfs          tmpfs     489M     0  489M    0% /sys/fs/cgroup
+/dev/sda1      xfs       197M  136M   61M   70% /boot
+tmpfs          tmpfs      98M     0   98M    0% /run/user/0
+
+2020/12/13 01:33:39 ：[192.168.200.40] 磁盘空间使用剩余情况
+文件系统       类型      容量  已用  可用 已用% 挂载点
+/dev/sda3      xfs        78G  3.8G   74G    5% /
+devtmpfs       devtmpfs  474M     0  474M    0% /dev
+tmpfs          tmpfs     489M     0  489M    0% /dev/shm
+tmpfs          tmpfs     489M  7.0M  482M    2% /run
+tmpfs          tmpfs     489M     0  489M    0% /sys/fs/cgroup
+/dev/sda1      xfs       197M  136M   61M   70% /boot
+tmpfs          tmpfs      98M     0   98M    0% /run/user/0
+

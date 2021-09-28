@@ -1,0 +1,6 @@
+2020/12/13 01:33:05 开始检测：-------------------------------------
+2020/12/13 01:33:05 [192.168.200.20] 主机能够成功登录！！！！
+2020/12/13 01:33:06 [192.168.200.30] 主机能够登录失败：ssh: handshake failed: ssh: unable to authenticate, attempted methods [none password], no supported methods remain
+2020/12/13 01:33:06 [192.168.200.40] 主机能够成功登录！！！！
+2020/12/13 01:33:55 开始检测：-------------------------------------
+2020/12/13 01:33:58 [192.168.200.30] 主机能够登录失败：ssh: handshake failed: ssh: unable to authenticate, attempted methods [none password], no supported methods remain
