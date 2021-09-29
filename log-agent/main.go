@@ -17,6 +17,7 @@ func init() {
 
 func main() {
 	//0、初始化配置文件
+	conf.Init()
 
 	//1、初始化 kafka 连接
 	err := kafka.Init([]string{conf.KafkaSetting.Address}, conf.KafkaSetting.Chan_max)
