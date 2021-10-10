@@ -1,0 +1,6 @@
+generate:
+# 其中 go_out 参数告诉 protoc 编译器去加载对应的 protoc-gen-go 工具，通过工具将代码生成在当前文件中； 
+	protoc --go_out=. hello.proto
+
+clean:
+	-rm *.pb.go

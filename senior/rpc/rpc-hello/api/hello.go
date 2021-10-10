@@ -12,7 +12,7 @@ type HelloClient struct {
 	*rpc.Client
 }
 
-// 实现 Hello 方法的函数
+// 服务端需要实现 Hello 方法的函数
 func (p *HelloClient) Hello(request string, reply *string) error {
 	return p.Call(HelloServiceName+".Hello", request, &reply)
 }

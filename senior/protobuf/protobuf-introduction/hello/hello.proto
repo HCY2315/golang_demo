@@ -2,10 +2,10 @@
 syntax = "proto3";
 
 // package 指明当前是 main 包：这样可以和go的包名保持一致，简化例子代码
-package main;
+package hello;
 
 // message 关键字定义新的string类型，最终对应一个string结构体
-message String {
+message String{
     // 字符串类型的value成员，该成员编码时用编号1替代名字
     string value = 1;
 }
