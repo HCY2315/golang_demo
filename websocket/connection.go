@@ -9,8 +9,10 @@ import (
 )
 
 type connection struct {
-	ws   *websocket.Conn
-	sc   chan []byte
+	ws *websocket.Conn
+	// 输入的内容信息的通道
+	sc chan []byte
+	// 输入的内容信息
 	data *Data
 }
 
@@ -28,6 +30,7 @@ func myws(w http.ResponseWriter, r *http.Request) {
 	}
 	c := &connection{sc: make(chan []byte, 256), ws: ws, data: &Data{}}
 	h.r <- c
+	// 持续的写入消息
 	go c.writer()
 	// 持续的读数据
 	c.reader()
@@ -44,7 +47,7 @@ func myws(w http.ResponseWriter, r *http.Request) {
 
 func (c *connection) writer() {
 	for message := range c.sc {
-		// 编写消息并关闭编写器
+		// 写入消息
 		c.ws.WriteMessage(websocket.TextMessage, message)
 	}
 	c.ws.Close()
@@ -61,6 +64,7 @@ func (c *connection) reader() {
 			break
 		}
 		json.Unmarshal(message, &c.data)
+		// 解析数据类型
 		switch c.data.Type {
 		case "login":
 			c.data.User = c.data.Content
@@ -85,6 +89,7 @@ func (c *connection) reader() {
 	}
 }
 
+// 在切片中删除退出的用户信息
 func del(slice []string, user string) []string {
 	count := len(slice)
 	if count == 0 {

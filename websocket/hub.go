@@ -10,9 +10,13 @@ var h = hub{
 }
 
 type hub struct {
+	// 在线的连接信息
 	c map[*connection]bool
+	// 退出的用户信息
 	u chan *connection
+	// 用户数据信息（connection.data）
 	b chan []byte
+	// 连接的用户信息
 	r chan *connection
 }
 
